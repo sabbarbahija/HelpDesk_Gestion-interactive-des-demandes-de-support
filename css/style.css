@@ -1,0 +1,283 @@
+body {
+    background: #F8F9FA;
+    margin: 0;
+    font-family: sans-serif;
+}
+header {
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.logo-icon {
+    background: #202A38;
+    color: white;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    font-weight: 700;
+}
+
+.breadcrumb {
+    font-size: 12px;
+    color: #8A95A4;
+    display: flex;
+    gap: 6px;
+}
+
+.breadcrumb a {
+    color:  #8A95A4;
+    text-decoration: none;
+}
+.page-title {
+    padding: 24px 24px 16px;
+}
+.page-title h1 {
+    font-size: 20px;
+    margin: 0 0 4px;
+}
+.page-title p {
+    font-size: 13px;
+    color:#8A95A4;
+    margin: 0;
+}
+
+.form-card {
+    background: white;
+    margin: 0 24px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.form-card h2 {
+     font-size: 15px;
+     margin: 0 0 4px;
+     }
+.subtitle { 
+    font-size: 12px;
+     color: #8A95A4; 
+     margin-bottom: 18px;
+     }
+
+.form-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.form-group {
+     display: flex;
+     flex-direction: column;
+      gap: 6px;
+     }
+.form-group.full { 
+    margin-bottom: 16px;
+ }
+.form-group label { 
+    font-size: 11px;
+     font-weight: 600; 
+    }
+
+.form-group input, .form-group select, .form-group textarea {
+    padding: 10px;
+    border: 1px solid #E5E7EB;
+    border-radius: 6px;
+    font-size: 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.form-group textarea {
+     min-height: 70px;
+    }
+
+.form-actions {
+     display: flex; 
+    justify-content: flex-end;
+ }
+.form-actions button {
+    background:  #252F3E;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.list {
+  margin-top: 30px;
+  padding: 0 24px;
+}
+
+.list-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.list-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.list-title h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.count {
+  background: #EBEFF4;
+  color: #5C697B;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.switch {
+  width: 200px;
+  background: #EEF2F7;
+  padding: 4px;
+  border-radius: 10px;
+  display: flex;
+  gap: 4px;
+}
+.switch button {
+  border: none;
+  background:#EBEFF4;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  color: #8B95A5;
+  cursor: pointer;
+}
+
+#cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+  border-radius: 12px;
+  background: white;
+}
+
+
+.card {
+  background: #FFFFFF;
+  border: 1px solid #f1f5f9;
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.icon-box {
+  width: 38px;
+  height: 38px;
+  background: #EAF0F9;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:  #587397;
+  border: 1px solid #f1f5f9;
+}
+
+.card-id {
+  font-size: 11px;
+  color: #99A4B2;
+  font-weight: 500;
+}
+
+.card h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 6px;
+color: #243143;
+
+}
+
+.card p {
+  font-size: 12px;
+  color: #8D99A8;
+
+}
+
+/* Tags */
+.tags {
+  display: flex;
+  gap: 9px;
+  margin-top: 18px;
+}
+
+.tag {
+  font-size: 11px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.tag-gray {
+background: #F0F3F7;
+  color:  #64748B;
+}
+
+.tag-red {
+  background: #FFF0E8;
+  color: #BA6444;
+
+}
+
+.tag-yellow {
+background: #FFF5DF;
+  color: #A67A2B;
+
+}
+
+.tag-green {
+background: #E8F6EE;
+  color: #388867;
+}
+
+
+
+ /* @media (min-width: 375px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  header {
+    padding: 12px 16px;
+  }
+  .form-card {
+    margin: 0 16px;
+    padding: 16px;
+  }
+  .page-title {
+    padding: 20px 16px 12px;
+  }
+}  */
