@@ -1,11 +1,87 @@
-<!DOCTYPE html>
-<html lang="en">
+
+  <!DOCTYPE html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <title>HelpDesk-Atlas Solutions</title>
 </head>
-<body>
-    
+    <header>
+        <div class="brand">
+            <div class="logo-icon">H</div>
+            <span>HelpDesk</span>
+        </div>
+        <nav class="breadcrumb">
+            <a href="#">Atlas Solutions</a>
+            <span>/</span>
+            <a href="#">Support</a>
+        </nav>
+    </header>
+    <body>
+        <main>
+             <section class="page-title">
+    <h1>Gestion des demandes</h1>
+    <p>Centralisez les incidents et simplifiez le suivi de votre équipe.</p>
+  </section>
+
+  <section class="form-card">
+    <h2>Créer une demande</h2>
+    <p class="subtitle">Décrivez votre problème informatique en quelques étapes.</p>
+ <form id="demande-form">
+      <div class="form-row">
+        <div class="form-group large">
+          <label for="titre">Titre du problème *</label>
+          <input type="text" id="titre" placeholder="Connexion Wi-Fi instable">
+        </div>
+        <div class="form-group">
+          <label for="categorie">Catégorie *</label>
+          <select id="categorie">
+            <option value="Réseau" selected>Réseau</option>
+            <option value="Matériel">Matériel</option>
+            <option value="Logiciel">Logiciel</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="priorite">Priorité *</label>
+          <select id="priorite">
+            <option value="Haute" selected>Haute</option>
+            <option value="Normale">Normale</option>
+            <option value="Basse">Basse</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group full">
+        <label for="description">Description *</label>
+        <textarea id="description" placeholder="Décrivez le problème informatique rencontré..."></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" id="btn-ajouter"><i class="fa-solid fa-plus"></i> Ajouter la demande</button>
+      </div>
+    </form>
+  </section>
+  <section class="list">
+    <div class="list-nav">
+      <div class="list-title">
+         <h3>Liste des demandes</h3>
+      <span class="count" id="Count"> 3 demandes</span>
+      </div>
+        <div class="switch">
+          <button type="button" id="cards" class="cards-active">
+              ▦ Cartes </button>
+         <button type="button" id="tableau" class="tablaeu-active">
+                ☷ Tableau </button>
+         </div>
+           </div>
+           <div class="list-cards" id="cards-container">
+
+           </div>
+
+  </section>
+       </main>
 </body>
+<script src="javaScript.js"></script>
 </html>
