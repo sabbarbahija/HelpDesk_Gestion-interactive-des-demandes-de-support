@@ -105,7 +105,12 @@ button.addEventListener("click" , () => {
   let cat = document.getElementById('categorie').value;
   let prio = document.getElementById('priorite').value;
   let desc = document.getElementById('description').value;
-  
+    
+    if(titre== ""||cat== ""||prio== ""||desc== ""){
+        window.alert("please fill the field");
+        return;
+    }
+    if(indexmod===-1){
   let nouvelle = {
     id: 'HD-00' + idnbr++,
     titre: titre,
@@ -113,13 +118,15 @@ button.addEventListener("click" , () => {
     prio: prio,
     desc: desc
   };
-
-    if(titre== ""||cat== ""||prio== ""||desc== ""){
-        window.alert("please fill the field");
-        return;
-    }
-  
   demandes[demandes.length] = nouvelle;
+  } else{
+     demandes[indexmod].titre = titre;
+    demandes[indexmod].cat = cat;
+    demandes[indexmod].prio = prio;
+    demandes[indexmod].desc = desc;
+    indexmod = -1;
+    button.textContent = 'Ajouter';
+  }
   afficher();
   form.reset();
 });
@@ -131,7 +138,17 @@ button.addEventListener("click" , () => {
 // btnDel.addEventListener("click", () => {
 //   supprimer(index);
 // });
-
+function modifier(index) {
+  let demande = demandes[index];
+  
+  document.getElementById('titre').value = demande.titre;
+  document.getElementById('categorie').value = demande.cat;
+  document.getElementById('priorite').value = demande.prio;
+  document.getElementById('description').value = demande.desc;
+  
+  indexmod= index; 
+  button.textContent = 'Modifier';
+}
 
   afficher();
 });
