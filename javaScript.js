@@ -4,9 +4,9 @@
   { id: 'HD-002', titre: "Installation d'un logiciel", desc: 'Installer un logiciel sur le poste.', cat: 'Logiciel', prio: 'Normale' },
   { id: 'HD-003', titre: 'Clavier défectueux', desc: 'Certaines touches ne fonctionnent plus.', cat: 'Matériel', prio: 'Basse' }
 ];
-console.log(demandes.length +1);
 
- let idnbr = demandes.length + 1;
+let indexmod=-1;
+let idnbr = demandes.length + 1;
 
 const container=document.getElementById('cards-container');
 const countSpan = document.getElementById('Count');
@@ -15,7 +15,7 @@ let button = document.getElementById('btn-ajouter');
 document.addEventListener('DOMContentLoaded', () => {
 
  function creerCarte(demande ,index ){
-     let card = document.createElement('article');
+    let card = document.createElement('article');
     card.className = 'card';
     let top=document.createElement('div');
     top.className="card-top";
@@ -24,9 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let icon = document.createElement('i');
     icon.className = 'fa-solid';
     if (demande.cat === 'Réseau')
-       icon.classList.add('fa-wifi');
+    icon.classList.add('fa-wifi');
     else if (demande.cat === 'Logiciel')
-       icon.classList.add('fa-download');
+    icon.classList.add('fa-download');
     else icon.classList.add('fa-keyboard');
     iconBox.appendChild(icon);
     let idSpan = document.createElement('span');
@@ -40,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
     p.textContent = demande.desc;
     let tagsDiv = document.createElement('div');
     tagsDiv.className = 'tags';
-   
     let tagCat = document.createElement('span');
     tagCat.className = 'tag tag-gray';
     tagCat.textContent = demande.cat;
@@ -68,6 +67,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let iconDel = document.createElement('i');
     iconDel.className = 'fa-solid fa-xmark';
     btnDel.prepend(iconDel);
+    btnDel.addEventListener('click', () => {
+    demandes.splice(index, 1);
+    afficher();
+    });
 
     footer.appendChild(btnMod);
     footer.appendChild(btnDel);
@@ -75,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     tagsDiv.appendChild(tagCat);
     tagsDiv.appendChild(tagPrio);
 
-     card.appendChild(top);
+    card.appendChild(top);
     card.appendChild(h3);
     card.appendChild(p);
     card.appendChild(tagsDiv);
@@ -85,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
  }
  function afficher() {
     while (container.firstChild) {
-      container.removeChild(container.firstChild);
+    container.removeChild(container.firstChild);
     }
 
     for (let i = 0; i < demandes.length; i++) {
@@ -102,7 +105,12 @@ button.addEventListener("click" , () => {
   let cat = document.getElementById('categorie').value;
   let prio = document.getElementById('priorite').value;
   let desc = document.getElementById('description').value;
-  
+    
+    if(titre== ""||cat== ""||prio== ""||desc== ""){
+        window.alert("please fill the field");
+        return;
+    }
+    if(indexmod===-1){
   let nouvelle = {
     id: 'HD-00' + idnbr++,
     titre: titre,
@@ -110,17 +118,37 @@ button.addEventListener("click" , () => {
     prio: prio,
     desc: desc
   };
-
-    if(titre== ""||cat== ""||prio== ""||desc== ""){
-        window.alert("please fill the field");
-        return;
-    }
-  
   demandes[demandes.length] = nouvelle;
+  } else{
+     demandes[indexmod].titre = titre;
+    demandes[indexmod].cat = cat;
+    demandes[indexmod].prio = prio;
+    demandes[indexmod].desc = desc;
+    indexmod = -1;
+    button.textContent = 'Ajouter';
+  }
   afficher();
   form.reset();
 });
-
+// // supprimer
+//  function supprimer(index) {
+//   demandes.splice(index, 1);
+//   afficher();
+// }
+// btnDel.addEventListener("click", () => {
+//   supprimer(index);
+// });
+function modifier(index) {
+  let demande = demandes[index];
+  
+  document.getElementById('titre').value = demande.titre;
+  document.getElementById('categorie').value = demande.cat;
+  document.getElementById('priorite').value = demande.prio;
+  document.getElementById('description').value = demande.desc;
+  
+  indexmod= index; 
+  button.textContent = 'Modifier';
+}
 
   afficher();
 });
