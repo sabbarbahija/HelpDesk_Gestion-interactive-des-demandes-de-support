@@ -263,6 +263,47 @@ background: #FFF5DF;
 background: #E8F6EE;
   color: #388867;
 }
+.card-footer{
+  display: flex;
+  justify-content: flex-end; 
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+  border-top: 1px solid #EDF0F3;
+
+}
+.btn-mod, .btn-del{
+  background: none;
+  margin-top: 10px;
+  padding:  3px;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+
+.btn-mod{
+  color: #617084;
+
+}
+.btn-mod:hover{
+  background: #617084;
+  color: white;
+}
+
+.btn-del{
+  background: #fef2f2;
+  color:#CC626A;
+
+}
+.btn-del:hover{
+  background:white;
+  color: #CC626A;
+}
+
 
 
 
