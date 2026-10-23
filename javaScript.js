@@ -59,7 +59,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let iconMod = document.createElement('i');
     iconMod.className = 'fa-solid fa-pen';
     btnMod.prepend(iconMod);
+    btnMod.addEventListener('click', () => {
+      modifier(index)
 
+ });
     // supprimer
      let btnDel = document.createElement('button');
     btnDel.className = 'btn-del';
@@ -68,8 +71,12 @@ document.addEventListener('DOMContentLoaded', () => {
     iconDel.className = 'fa-solid fa-xmark';
     btnDel.prepend(iconDel);
     btnDel.addEventListener('click', () => {
+
+      let confirmation = confirm("Êtes-vous sûr de vouloir supprimer cette demande ?");
+      if(confirmation){
     demandes.splice(index, 1);
     afficher();
+    }
     });
 
     footer.appendChild(btnMod);
@@ -87,9 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return card;
  }
  function afficher() {
-    while (container.firstChild) {
-    container.removeChild(container.firstChild);
-    }
+       container.innerHTML = '';
 
     for (let i = 0; i < demandes.length; i++) {
       let carte = creerCarte(demandes[i], i);
@@ -107,7 +112,7 @@ button.addEventListener("click" , () => {
   let desc = document.getElementById('description').value;
     
     if(titre== ""||cat== ""||prio== ""||desc== ""){
-        window.alert("please fill the field");
+        alert("Veuillez remplir tous les champs !");
         return;
     }
     if(indexmod===-1){
@@ -130,14 +135,7 @@ button.addEventListener("click" , () => {
   afficher();
   form.reset();
 });
-// // supprimer
-//  function supprimer(index) {
-//   demandes.splice(index, 1);
-//   afficher();
-// }
-// btnDel.addEventListener("click", () => {
-//   supprimer(index);
-// });
+
 function modifier(index) {
   let demande = demandes[index];
   
@@ -149,6 +147,8 @@ function modifier(index) {
   indexmod= index; 
   button.textContent = 'Modifier';
 }
+
+
 
   afficher();
 });
